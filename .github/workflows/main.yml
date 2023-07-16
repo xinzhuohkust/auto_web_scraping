@@ -30,7 +30,7 @@ jobs:
             any::rio
             any::rvest
             
-      - name: Scrape
+      - name: Web Crawling
         run: source("shanghai_petition.R")
         shell: Rscript {0}
         
