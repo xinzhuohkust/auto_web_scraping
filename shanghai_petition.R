@@ -1,3 +1,3 @@
 filelocation <- location = getwd()
 
-writeLines(filelocation, "filelocation.csv")
+writeLines(filelocation, "data/filelocation.csv")
