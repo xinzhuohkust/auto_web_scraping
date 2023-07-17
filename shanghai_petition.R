@@ -1,3 +1,4 @@
-filelocation <- getwd()
-
-writeLines(filelocation, "data/filelocation.csv")
+library(tidyverse)
+library(jsonlite)
+library(rvest)
+library(httr2)
