@@ -30,6 +30,7 @@ jobs:
             any::rio
             any::rvest
             any::httr2
+            any::jsonlite
             
       - name: Web Crawling
         run: source("shanghai_petition.R")
