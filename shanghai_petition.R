@@ -73,6 +73,6 @@ contents <- table %>%
 
 export(
       contents, 
-      file = sprintf("data/contents/%s_table.csv", Sys.Date()),
+      file = sprintf("data/contents/%s_contents.csv", Sys.Date()),
       bom = TRUE
     ) 
