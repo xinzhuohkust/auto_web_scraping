@@ -2,6 +2,7 @@ library(tidyverse)
 library(jsonlite)
 library(rvest)
 library(httr2)
+library(rio)
 
 extract_info <- possibly(
     \(page) {
