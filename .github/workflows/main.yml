@@ -29,6 +29,7 @@ jobs:
             any::tidyverse
             any::rio
             any::rvest
+            any::httr2
             
       - name: Web Crawling
         run: source("shanghai_petition.R")
