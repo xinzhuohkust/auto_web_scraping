@@ -45,7 +45,6 @@ export(
 
 extract_contents <- possibly(
     \(link) {
-
         contents <- link %>%
             request() %>%
             req_timeout(12) %>%
