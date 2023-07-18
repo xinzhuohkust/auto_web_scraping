@@ -74,15 +74,15 @@ table <- table %>%
 
 if(nrow(table) != 0) {
     contents <- table %>% 
-    transmute(links = sprintf(fmt = "https://zfwzzc.www.gov.cn/check_web/errorInfo_getErrorInfoList2.action?id=%s", id)) %>% 
-    distinct(links, .keep_all = TRUE) %>% 
-    mutate(contents = map_chr(links, extract_contents, .progress = TRUE))
-
-export(
-      contents, 
-      file = sprintf("data/contents/%s_contents.csv", Sys.Date()),
-      bom = TRUE
-    ) 
+        transmute(links = sprintf(fmt = "https://zfwzzc.www.gov.cn/check_web/errorInfo_getErrorInfoList2.action?id=%s", id)) %>% 
+        distinct(links, .keep_all = TRUE) %>% 
+        mutate(contents = map_chr(links, extract_contents, .progress = TRUE))
+    
+    export(
+          contents, 
+          file = sprintf("data/contents/%s_contents.csv", Sys.Date()),
+          bom = TRUE
+        ) 
 } else {
     export(
       tibble(info = "there is no new data"),
