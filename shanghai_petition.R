@@ -66,7 +66,8 @@ extract_contents <- possibly(
 )
 
 done <- list.files("/home/runner/work/auto_web_crawling/auto_web_crawling/data/table", pattern = "table", full.names = TRUE) %>% 
-    map_dfr(~import(., setclass = "tibble"))
+    map_dfr(~import(., setclass = "tibble")) %>% 
+    distinct(id, .keep_all = TRUE)
     
 table <- table %>% 
     anti_join(done, "id")
