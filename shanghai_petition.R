@@ -69,7 +69,7 @@ done <- list.files("/home/runner/work/auto_web_crawling/auto_web_crawling/data/t
     map_dfr(~import(., setclass = "tibble"))
     
 table <- table %>% 
-    anti_join(done, "links")
+    anti_join(done, "id")
 
 if(nrow(table) != 0) {
     contents <- table %>% 
