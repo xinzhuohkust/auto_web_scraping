@@ -33,7 +33,7 @@ jobs:
             any::jsonlite
             
       - name: Web Crawling
-        run: source("shanghai_petition.R")
+        run: source("gov_website.R")
         shell: Rscript {0}
         
       - name: Commit files
