@@ -42,10 +42,11 @@ info <- list()
 for (i in 1:total) {
     info[[i]] <- extract_info(i)
 
-    if (identical(
-        pluck(fromJSON(info[[i]]), "body", "id") %in% done$id,
-        rep(TRUE, 10)
-    )
+    if (
+        identical(
+            pluck(fromJSON(info[[i]]), "body", "id") %in% done$id,
+            rep(TRUE, 10)
+        )
     ) {
         break
     }
