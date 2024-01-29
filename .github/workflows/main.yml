@@ -1,6 +1,9 @@
+#on:
+  #schedule:
+   #- cron: '00 12 */3 * *'
 on:
-  schedule:
-   - cron: '00 12 */3 * *'
+  push:
+    branches: main
 
 jobs:
   update-report:
