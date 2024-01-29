@@ -5,10 +5,8 @@ library(httr2)
 library(rio)
 
 done <- list.files("/home/runner/work/auto_web_crawling/auto_web_crawling/data/table", pattern = "csv", full.names = TRUE) %>%
-    map_dfr(~ import(., setclass = "tibble")) %>%
-    distinct(id, .keep_all = TRUE) %>% 
-    mutate(across(everything(), as.character)) %>% 
-    tibble()
+    map_dfr(~ import(., setclass = "tibble") |> mutate(across(everything(), as.character))) %>%
+    distinct(id, .keep_all = TRUE)
 
 extract_info <- possibly(
     insistently(
@@ -62,9 +60,11 @@ for (i in 1:ceiling(total / 10)) {
 }
 
 table <- info[info != "error!"] %>%
-    map_dfr(\(x) fromJSON(x) |> pluck("body")) %>% 
-    mutate(across(everything(), as.character)) %>% 
-    tibble()
+    map_dfr(
+        \(x) fromJSON(x) |>
+            pluck("body") |>
+            mutate(across(everything(), as.character))
+    )
 
 export(
     table,
